@@ -1,5 +1,24 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage<ContentModels.Index>
 @using ContentModels = Umbraco.Web.PublishedContentModels;
 @{
-	Layout = null;
+	Layout = "Master.cshtml";
 }
+
+<div class="jumbotron">
+    <div class="container">
+        <h1 class="display-3">@Umbraco.Field("heroText")</h1>
+        <a href="/about" class="btn btn-success btn-lg">@Umbraco.GetDictionaryValue("CTAButton")</a>
+    </div>
+</div>
+
+<div class="container">
+    <!-- Example row of columns -->
+    <div class="row">
+        <div class="col-md-12">
+            <h2>@Umbraco.Field("pageTitle")</h2>
+            @Umbraco.Field("pageContent")
+        </div>
+    </div>
+    <hr>
+        
+</div> <!-- /container -->
