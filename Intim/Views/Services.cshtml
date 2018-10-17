@@ -6,14 +6,16 @@
 }
 
 <div class="container">
+    <h1>@Umbraco.Field("pageTitle")</h1>
     <div class="row">
-        <h1>@Umbraco.Field("pageTitle")</h1>
-        
             @foreach(var obj in listOfPages)
-            {
-        <div class="col col-md-12">
-            <h3>@obj.pageTitle</h3>
-        </div>
+            {  
+                <div class="col col-md-4">
+                    <h3>@obj.pageTitle</h3>
+                    <img src="@obj.GetPropertyValue("pagePicture").Url" style="width:200px">
+                    <p>@obj.pageDescription</p>
+                    <a href="@obj.Url"><h6>Klicka här för mer information!</h6></a>
+                </div>
             }
         
     </div>

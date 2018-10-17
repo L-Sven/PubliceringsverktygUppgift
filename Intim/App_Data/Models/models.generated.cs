@@ -19,8 +19,8 @@ using Umbraco.ModelsBuilder;
 using Umbraco.ModelsBuilder.Umbraco;
 
 [assembly: PureLiveAssembly]
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "ce2bfe7a2979f1f9")]
-[assembly:System.Reflection.AssemblyVersion("0.0.0.2")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "d7ecb52ce25f012b")]
+[assembly:System.Reflection.AssemblyVersion("0.0.0.7")]
 
 namespace Umbraco.Web.PublishedContentModels
 {
@@ -59,7 +59,7 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
-		/// Page Content
+		/// Page Content: Sidans textinnehåll
 		///</summary>
 		[ImplementPropertyType("pageContent")]
 		public IHtmlString PageContent
@@ -68,7 +68,7 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
-		/// Page Title
+		/// Page Title: Sidans titel, syns på sidan.
 		///</summary>
 		[ImplementPropertyType("pageTitle")]
 		public string PageTitle
@@ -114,7 +114,7 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
-		/// Page Content
+		/// Page Content: Sidans textinnehåll
 		///</summary>
 		[ImplementPropertyType("pageContent")]
 		public IHtmlString PageContent
@@ -126,7 +126,7 @@ namespace Umbraco.Web.PublishedContentModels
 		public static IHtmlString GetPageContent(IMaster that) { return that.GetPropertyValue<IHtmlString>("pageContent"); }
 
 		///<summary>
-		/// Page Title
+		/// Page Title: Sidans titel, syns på sidan.
 		///</summary>
 		[ImplementPropertyType("pageTitle")]
 		public string PageTitle
@@ -164,7 +164,7 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
-		/// Columns
+		/// Columns: Skapa en ny tjänst/service!
 		///</summary>
 		[ImplementPropertyType("columns")]
 		public object Columns
@@ -173,25 +173,7 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
-		/// Content title
-		///</summary>
-		[ImplementPropertyType("content1Title")]
-		public string Content1Title
-		{
-			get { return this.GetPropertyValue<string>("content1Title"); }
-		}
-
-		///<summary>
-		/// Page Content 1
-		///</summary>
-		[ImplementPropertyType("pageContent1")]
-		public IHtmlString PageContent1
-		{
-			get { return this.GetPropertyValue<IHtmlString>("pageContent1"); }
-		}
-
-		///<summary>
-		/// Page Content
+		/// Page Content: Sidans textinnehåll
 		///</summary>
 		[ImplementPropertyType("pageContent")]
 		public IHtmlString PageContent
@@ -200,7 +182,7 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
-		/// Page Title
+		/// Page Title: Sidans titel, syns på sidan.
 		///</summary>
 		[ImplementPropertyType("pageTitle")]
 		public string PageTitle
@@ -235,7 +217,16 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
-		/// Page Content
+		/// map
+		///</summary>
+		[ImplementPropertyType("map")]
+		public Terratype.Models.Model Map
+		{
+			get { return this.GetPropertyValue<Terratype.Models.Model>("map"); }
+		}
+
+		///<summary>
+		/// Page Content: Sidans textinnehåll
 		///</summary>
 		[ImplementPropertyType("pageContent")]
 		public IHtmlString PageContent
@@ -244,7 +235,7 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
-		/// Page Title
+		/// Page Title: Sidans titel, syns på sidan.
 		///</summary>
 		[ImplementPropertyType("pageTitle")]
 		public string PageTitle
@@ -279,7 +270,25 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
-		/// Page Content
+		/// page Description: Kort sammanfattning vad sidan innehåller
+		///</summary>
+		[ImplementPropertyType("pageDescription")]
+		public string PageDescription
+		{
+			get { return this.GetPropertyValue<string>("pageDescription"); }
+		}
+
+		///<summary>
+		/// page Picture
+		///</summary>
+		[ImplementPropertyType("pagePicture")]
+		public IPublishedContent PagePicture
+		{
+			get { return this.GetPropertyValue<IPublishedContent>("pagePicture"); }
+		}
+
+		///<summary>
+		/// Page Content: Sidans textinnehåll
 		///</summary>
 		[ImplementPropertyType("pageContent")]
 		public IHtmlString PageContent
@@ -288,7 +297,7 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
-		/// Page Title
+		/// Page Title: Sidans titel, syns på sidan.
 		///</summary>
 		[ImplementPropertyType("pageTitle")]
 		public string PageTitle
@@ -323,7 +332,16 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
-		/// Page Content
+		/// page Picture: En relevant bild
+		///</summary>
+		[ImplementPropertyType("pagePicture")]
+		public IPublishedContent PagePicture
+		{
+			get { return this.GetPropertyValue<IPublishedContent>("pagePicture"); }
+		}
+
+		///<summary>
+		/// Page Content: Sidans textinnehåll
 		///</summary>
 		[ImplementPropertyType("pageContent")]
 		public IHtmlString PageContent
@@ -332,7 +350,7 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
-		/// Page Title
+		/// Page Title: Sidans titel, syns på sidan.
 		///</summary>
 		[ImplementPropertyType("pageTitle")]
 		public string PageTitle

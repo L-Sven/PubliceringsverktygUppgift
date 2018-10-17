@@ -8,6 +8,13 @@
     <div class="row">
         <h1>@Umbraco.Field("pageTitle")</h1>
         <div class="col col-md-12">
+            @{
+                var typedMediaPickerSingle = Model.Content.GetPropertyValue<IPublishedContent>("pagePicture");
+                if (typedMediaPickerSingle != null)
+                {
+                    <img src="@typedMediaPickerSingle.Url" style="width:300px" alt="@typedMediaPickerSingle.GetPropertyValue("alt")" />
+                }
+            }
             @Umbraco.Field("pageContent")
         </div>
     </div>

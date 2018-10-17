@@ -1,16 +1,22 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage<ContentModels.Contact>
 @using ContentModels = Umbraco.Web.PublishedContentModels;
+@using Terratype;
 @{
-	Layout = "Master.cshtml";
+    Layout = "Master.cshtml";
 }
-
 <div class="container">
-    <div class="row">
-        <h1>@Umbraco.Field("pageTitle")</h1>
-        <div class="col col-md-12">
-            <p>Hej</p>
-            @Umbraco.Field("pageContent")
-        </div>
-    </div>
-    
+   <h1>@Umbraco.Field("pageTitle")</h1>
 </div>
+   <section class="section">
+
+   <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                @Html.Terratype(Model.Content.Map)
+           </div>
+            <div class="col col-md-6">
+                @Umbraco.Field("pageContent")
+            </div>        
+        </div>
+   </div>
+</section>
