@@ -8,8 +8,8 @@ using  Umbraco.Web;
 using  Umbraco.ModelsBuilder;
 using  Umbraco.ModelsBuilder.Umbraco;
 [assembly: PureLiveAssembly]
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "5d04f8ab11078580")]
-[assembly:System.Reflection.AssemblyVersion("0.0.0.3")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "ce2bfe7a2979f1f9")]
+[assembly:System.Reflection.AssemblyVersion("0.0.0.2")]
 
 
 // FILE: models.generated.cs
@@ -183,9 +183,9 @@ namespace Umbraco.Web.PublishedContentModels
 		/// Columns
 		///</summary>
 		[ImplementPropertyType("columns")]
-		public Newtonsoft.Json.Linq.JToken Columns
+		public object Columns
 		{
-			get { return this.GetPropertyValue<Newtonsoft.Json.Linq.JToken>("columns"); }
+			get { return this.GetPropertyValue("columns"); }
 		}
 
 		///<summary>

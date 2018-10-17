@@ -2,14 +2,20 @@
 @using ContentModels = Umbraco.Web.PublishedContentModels;
 @{
 	Layout = "Master.cshtml";
+    var listOfPages = CurrentPage.Children();
 }
 
 <div class="container">
     <div class="row">
         <h1>@Umbraco.Field("pageTitle")</h1>
+        
+            @foreach(var obj in listOfPages)
+            {
         <div class="col col-md-12">
-            @Umbraco.Field("columns")
+            <h3>@obj.pageTitle</h3>
         </div>
+            }
+        
     </div>
     
 </div>
