@@ -11,8 +11,8 @@
             @foreach(var obj in listOfPages)
             {  
                 <div class="col col-md-4">
-                    <h3>@obj.pageTitle</h3>
-                    <img src="@obj.GetPropertyValue("pagePicture").Url" style="width:200px">
+                    <h3 style="text-align:center">@obj.pageTitle</h3>
+                    <img src="@obj.GetPropertyValue("pagePicture").Url" style="width:100%">
                     <p>@obj.pageDescription</p>
                     <a href="@obj.Url"><h6>Klicka här för mer information!</h6></a>
                 </div>

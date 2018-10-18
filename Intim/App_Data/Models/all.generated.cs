@@ -8,8 +8,8 @@ using  Umbraco.Web;
 using  Umbraco.ModelsBuilder;
 using  Umbraco.ModelsBuilder.Umbraco;
 [assembly: PureLiveAssembly]
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "d7ecb52ce25f012b")]
-[assembly:System.Reflection.AssemblyVersion("0.0.0.7")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "d3069c330d55d4fd")]
+[assembly:System.Reflection.AssemblyVersion("0.0.0.2")]
 
 
 // FILE: models.generated.cs
@@ -72,6 +72,15 @@ namespace Umbraco.Web.PublishedContentModels
 		public string HeroText
 		{
 			get { return this.GetPropertyValue<string>("heroText"); }
+		}
+
+		///<summary>
+		/// Page Services: Skriv in kort om varje tjänst
+		///</summary>
+		[ImplementPropertyType("pageServices")]
+		public Newtonsoft.Json.Linq.JToken PageServices
+		{
+			get { return this.GetPropertyValue<Newtonsoft.Json.Linq.JToken>("pageServices"); }
 		}
 
 		///<summary>
