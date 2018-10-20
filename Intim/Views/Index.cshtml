@@ -7,7 +7,6 @@
 <div class="jumbotron">
     <div class="container">
         <h1 class="display-3">@Umbraco.Field("heroText")</h1>
-        <a href="/about" class="btn btn-success btn-lg">@Umbraco.GetDictionaryValue("CTAButton")</a>
     </div>
 </div>
 
@@ -18,9 +17,9 @@
             <h2>@Umbraco.Field("pageTitle")</h2>
             @Umbraco.Field("pageContent")
         </div>
-        
+        <hr />
         <div class="col-md-12">
-            
+            @Html.GetGridHtml(Model.Content, "pageServices")
         </div>
         
     </div>

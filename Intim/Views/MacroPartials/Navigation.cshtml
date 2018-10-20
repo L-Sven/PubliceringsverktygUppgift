@@ -1,0 +1,62 @@
+﻿@inherits Umbraco.Web.Macros.PartialViewMacroPage
+@using Umbraco.Web
+
+
+@*
+    This snippet displays a list of links of the pages immediately under the top-most page in the content tree.
+    This is the home page for a standard website.
+    It also highlights the current active page/section in the navigation with the CSS class "current".
+*@
+
+@{ var selection = Model.Content.Site().Children.Where(x => x.IsVisible()).ToArray(); }
+
+@if (selection.Length > 0)
+{
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        @foreach(var lange in Umbraco.ContentAtRoot())
+        {
+            <a class="nav-link" href="@lange.Url">@lange.Name</a>
+        }
+        
+        <a class="navbar-brand" href="/">
+            <img src="/media/1005/snapchat-160553008.jpg" style="width:75px" />
+        </a>
+        
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+            <ul class="navbar-nav mr-auto">
+
+                
+                @foreach(var item in selection)
+                {
+                <li class="nav-item">
+                    @switch (item.Name)
+                    {
+                        case "Contact":
+                            <a class="nav-link" href="@item.Url">@Umbraco.GetDictionaryValue("NavContact")</a>
+                            break;
+                        case "About us":
+                            <a class="nav-link" href="@item.Url">@Umbraco.GetDictionaryValue("NavAboutUs")</a>
+                            break;
+                        case "Services":
+                            <a class="nav-link" href="@item.Url">@Umbraco.GetDictionaryValue("NavServices")</a>
+                            break;
+
+                        default:
+                            <a class="nav-link" href="@item.Url">"Error"</a>
+                            break;
+                    }
+                </li>
+                }
+            </ul>
+
+          <form class="form-inline my-2 my-lg-0">
+              <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form>
+      </div>
+    </nav>
+}

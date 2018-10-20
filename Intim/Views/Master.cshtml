@@ -25,50 +25,9 @@
 
   <body>
       
-      <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-      <a class="navbar-brand" href="/">
-          <img src="/media/1005/snapchat-160553008.jpg" style="width:75px" />
-      </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-
-              <ul class="navbar-nav mr-auto">
-                  <li class="nav-item">
-                      <a class="nav-link" href="/">Start</a>
-                  </li>
-
-                  <li class="nav-item">
-                      <a class="nav-link" href="/about-us">Om oss</a>
-                  </li>
-                  
-                  <li class="nav-item">
-                      <a class="nav-link" href="/services">Tjänster</a>
-                  </li>
-                  
-                  <li class="nav-item">
-                      <a class="nav-link" href="/contact">Kontakta oss</a>
-                  </li>
-                @foreach(var lange in Umbraco.ContentAtRoot())
-                {
-                    <a class="nav-link" href="@lange.Url">@lange.Name</a>
-                }
-              </ul>
-
-          <form class="form-inline my-2 my-lg-0">
-              <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-          </form>
-      </div>
-    </nav>
+    @Umbraco.RenderMacro("Navigation")
     
-      
-
-    
-    
-    <main role="main" style="margin-top:2%;">
+    <main role="main">
         @RenderBody()
     </main>
       
