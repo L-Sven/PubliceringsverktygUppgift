@@ -372,6 +372,7 @@
     <Content Include="Views\Master.cshtml" />
     <Content Include="Views\About.cshtml" />
     <Content Include="Views\MacroPartials\Navigation.cshtml" />
+    <Content Include="Views\Services.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

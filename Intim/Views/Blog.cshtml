@@ -1,0 +1,22 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage<ContentModels.Blog>
+@using ContentModels = Umbraco.Web.PublishedContentModels;
+@{
+	Layout = "Master.cshtml";
+    var listOfPages = CurrentPage.Children().OrderBy("createDate desc");
+}
+
+<div class="container">
+    <h1>@Umbraco.Field("pageTitle")</h1>
+        <div class="row">
+            @foreach(var obj in listOfPages)
+            { 
+                <div class="col col-md-12">
+                    <h3 style="text-align:left">@obj.Name</h3>
+                    <img src="@obj.GetPropertyValue("pagePicture").Url" style="width:20%"/>
+                    <p>@obj.GetPropertyValue("pageDescription")</p>
+                    <a href="@obj.Url"><h6>@Umbraco.GetDictionaryValue("ServicesBlogReadMore")</h6></a>
+                </div>
+            }
+        
+    </div>
+</div>

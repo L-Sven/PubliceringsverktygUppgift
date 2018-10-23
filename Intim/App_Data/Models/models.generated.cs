@@ -19,8 +19,8 @@ using Umbraco.ModelsBuilder;
 using Umbraco.ModelsBuilder.Umbraco;
 
 [assembly: PureLiveAssembly]
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "d3069c330d55d4fd")]
-[assembly:System.Reflection.AssemblyVersion("0.0.0.2")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "b8b7d77f1a63a15")]
+[assembly:System.Reflection.AssemblyVersion("0.0.0.3")]
 
 namespace Umbraco.Web.PublishedContentModels
 {
@@ -342,6 +342,121 @@ namespace Umbraco.Web.PublishedContentModels
 
 		///<summary>
 		/// page Picture: En relevant bild
+		///</summary>
+		[ImplementPropertyType("pagePicture")]
+		public IPublishedContent PagePicture
+		{
+			get { return this.GetPropertyValue<IPublishedContent>("pagePicture"); }
+		}
+
+		///<summary>
+		/// Page Content: Sidans textinnehåll
+		///</summary>
+		[ImplementPropertyType("pageContent")]
+		public IHtmlString PageContent
+		{
+			get { return Umbraco.Web.PublishedContentModels.Master.GetPageContent(this); }
+		}
+
+		///<summary>
+		/// Page Title: Sidans titel, syns på sidan.
+		///</summary>
+		[ImplementPropertyType("pageTitle")]
+		public string PageTitle
+		{
+			get { return Umbraco.Web.PublishedContentModels.Master.GetPageTitle(this); }
+		}
+	}
+
+	/// <summary>Blog</summary>
+	[PublishedContentModel("blog")]
+	public partial class Blog : PublishedContentModel, IMaster
+	{
+#pragma warning disable 0109 // new is redundant
+		public new const string ModelTypeAlias = "blog";
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+#pragma warning restore 0109
+
+		public Blog(IPublishedContent content)
+			: base(content)
+		{ }
+
+#pragma warning disable 0109 // new is redundant
+		public new static PublishedContentType GetModelContentType()
+		{
+			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
+		}
+#pragma warning restore 0109
+
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<Blog, TValue>> selector)
+		{
+			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+
+		///<summary>
+		/// Columns: Skapa en ny tjänst/service!
+		///</summary>
+		[ImplementPropertyType("columns")]
+		public object Columns
+		{
+			get { return this.GetPropertyValue("columns"); }
+		}
+
+		///<summary>
+		/// Page Content: Sidans textinnehåll
+		///</summary>
+		[ImplementPropertyType("pageContent")]
+		public IHtmlString PageContent
+		{
+			get { return Umbraco.Web.PublishedContentModels.Master.GetPageContent(this); }
+		}
+
+		///<summary>
+		/// Page Title: Sidans titel, syns på sidan.
+		///</summary>
+		[ImplementPropertyType("pageTitle")]
+		public string PageTitle
+		{
+			get { return Umbraco.Web.PublishedContentModels.Master.GetPageTitle(this); }
+		}
+	}
+
+	/// <summary>BlogPost</summary>
+	[PublishedContentModel("blogPost")]
+	public partial class BlogPost : PublishedContentModel, IMaster
+	{
+#pragma warning disable 0109 // new is redundant
+		public new const string ModelTypeAlias = "blogPost";
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+#pragma warning restore 0109
+
+		public BlogPost(IPublishedContent content)
+			: base(content)
+		{ }
+
+#pragma warning disable 0109 // new is redundant
+		public new static PublishedContentType GetModelContentType()
+		{
+			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
+		}
+#pragma warning restore 0109
+
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<BlogPost, TValue>> selector)
+		{
+			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+
+		///<summary>
+		/// page Description: Kort sammanfattning vad sidan innehåller
+		///</summary>
+		[ImplementPropertyType("pageDescription")]
+		public string PageDescription
+		{
+			get { return this.GetPropertyValue<string>("pageDescription"); }
+		}
+
+		///<summary>
+		/// page Picture
 		///</summary>
 		[ImplementPropertyType("pagePicture")]
 		public IPublishedContent PagePicture
