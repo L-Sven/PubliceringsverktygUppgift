@@ -11,7 +11,7 @@
             @foreach(var obj in listOfPages)
             { 
                 <div class="col col-md-4">
-                    <h3 style="text-align:left">@obj.Name</h3>
+                    <h3 style="text-align:left">@obj.GetPropertyValue("pageTitle")</h3>
                     <img src="@obj.GetPropertyValue("pagePicture").Url" style="width:100%"/>
                     <p>@obj.GetPropertyValue("pageDescription")</p>
                     <a href="@obj.Url"><h6>@Umbraco.GetDictionaryValue("ServicesBlogReadMore")</h6></a>

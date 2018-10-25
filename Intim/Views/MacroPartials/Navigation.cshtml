@@ -29,6 +29,9 @@
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
             <ul class="navbar-nav mr-auto">
 
+                <li class="nav-item">
+                    <a class="nav-link" href="/">@Umbraco.GetDictionaryValue("NavHome")</a>
+                </li>
                 
                 @foreach(var item in selection)
                 {

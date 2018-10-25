@@ -19,7 +19,7 @@ using Umbraco.ModelsBuilder;
 using Umbraco.ModelsBuilder.Umbraco;
 
 [assembly: PureLiveAssembly]
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "b8b7d77f1a63a15")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "4dbeb5c3dfa01695")]
 [assembly:System.Reflection.AssemblyVersion("0.0.0.3")]
 
 namespace Umbraco.Web.PublishedContentModels
@@ -235,6 +235,15 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
+		/// pageDescription: Kort beskrivning av sidan för index sidan
+		///</summary>
+		[ImplementPropertyType("pageDescription")]
+		public string PageDescription
+		{
+			get { return this.GetPropertyValue<string>("pageDescription"); }
+		}
+
+		///<summary>
 		/// Page Content: Sidans textinnehåll
 		///</summary>
 		[ImplementPropertyType("pageContent")]
@@ -341,6 +350,15 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
+		/// pageDescription: Kort beskrivning av sidan för index sidan
+		///</summary>
+		[ImplementPropertyType("pageDescription")]
+		public string PageDescription
+		{
+			get { return this.GetPropertyValue<string>("pageDescription"); }
+		}
+
+		///<summary>
 		/// page Picture: En relevant bild
 		///</summary>
 		[ImplementPropertyType("pagePicture")]
@@ -400,6 +418,15 @@ namespace Umbraco.Web.PublishedContentModels
 		public object Columns
 		{
 			get { return this.GetPropertyValue("columns"); }
+		}
+
+		///<summary>
+		/// pageDescription: Kort beskrivning av sidan för index sidan
+		///</summary>
+		[ImplementPropertyType("pageDescription")]
+		public string PageDescription
+		{
+			get { return this.GetPropertyValue<string>("pageDescription"); }
 		}
 
 		///<summary>
@@ -665,6 +692,15 @@ namespace Umbraco.Web.PublishedContentModels
 		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<Member, TValue>> selector)
 		{
 			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+
+		///<summary>
+		/// Secret Message
+		///</summary>
+		[ImplementPropertyType("secretMessage")]
+		public string SecretMessage
+		{
+			get { return this.GetPropertyValue<string>("secretMessage"); }
 		}
 
 		///<summary>

@@ -3,6 +3,7 @@
 @{
 	Layout = "Master.cshtml";
 }
+@{ var selection = Model.Content.Site().Children.Where(x => x.IsVisible()).ToArray(); }
 
 <div class="jumbotron">
     <div class="container">
@@ -10,19 +11,39 @@
     </div>
 </div>
 
-<div class="container">
-    <!-- Example row of columns -->
-    <div class="row">
-        <div class="col-md-12">
-            <h2>@Umbraco.Field("pageTitle")</h2>
-            @Umbraco.Field("pageContent")
-        </div>
+<section class="section--themed">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>@Umbraco.Field("pageTitle")</h2>
+                @Umbraco.Field("pageContent")
+                <hr/>
+            </div>
+            
+            <div class="col-md-12">
+                @Html.GetGridHtml(Model.Content, "pageServices")
+            </div>
         <hr />
-        <div class="col-md-12">
-            @Html.GetGridHtml(Model.Content, "pageServices")
         </div>
-        
     </div>
-    <hr>
-        
-</div> <!-- /container -->
+</section>
+
+<section class="section section--themed">
+    @foreach(var obj in selection)
+    {
+        if(@obj.GetPropertyValue("pageTitle").ToString() != "Tjänster"
+            && @obj.GetPropertyValue("pageTitle").ToString() != "Services")
+        { 
+        <div class="container">
+            <div class="col-md-12">
+                <br>
+                <h2>@obj.GetPropertyValue("pageTitle")</h2>
+                <p>@obj.GetPropertyValue("pageDescription")</p>
+                <a href="@obj.Url">@Umbraco.GetDictionaryValue("ServicesBlogReadMore")</a>
+                <br>
+                <br>
+            </div>
+        </div>
+        }
+    }
+</section>
